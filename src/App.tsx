@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import { Container } from 'react-bootstrap';
 import './App.css';
+import { UserInfoProps } from './models/UserInfoProps.model';
+import UserInfo from './components/UserInfo';
+import Card from './components/Card';
 
 function App() {
+  const user: UserInfoProps = {
+      name: "Bob Jones", 
+      age: 45,
+      email: "bobby1jones@gmail.com"
+    }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <div>
+        <UserInfo {...user} />
+      </div>
+      <Card>
+        <h2>Example of a Text Child</h2>
+        <p>More really cool example text</p>
+      </Card>
+      <Card>
+        <ol>
+          <li>Example Listing</li>
+          <li>Using elements as a child</li>
+        </ol>
+      </Card>
+    </Container>
   );
 }
 
